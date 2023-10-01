@@ -5,10 +5,11 @@ import os
 import pandas as pd
 from pandasai import PandasAI
 
+
 load_dotenv()
 
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_api_key = "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"
 
 
 def chat_with_csv(df,prompt):
@@ -20,7 +21,9 @@ def chat_with_csv(df,prompt):
 
 st.set_page_config(layout='wide')
 
-st.title("ChatCSV powered by LLM")
+st.title("LLM powered CSV chatbot")
+st.write("Upload a csv file and ask the bot about your data.")
+st.write(" # ")
 
 input_csv = st.file_uploader("Upload your CSV file", type=['csv'])
 
@@ -30,8 +33,9 @@ if input_csv is not None:
 
         with col1:
             st.info("CSV Uploaded Successfully")
-            data = pd.read_csv(input_csv)
-            st.dataframe(data, use_container_width=True)
+            with st.expander("View Data Frame"):
+                data = pd.read_csv(input_csv)
+                st.dataframe(data, use_container_width=True)
 
         with col2:
 
