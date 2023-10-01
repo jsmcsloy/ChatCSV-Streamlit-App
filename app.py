@@ -8,8 +8,10 @@ from pandasai import PandasAI
 
 load_dotenv()
 
+#online
+openai_api_key = st.secrets["openai_api_key_"] 
 
-openai_api_key = "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"
+
 
 
 def chat_with_csv(df,prompt):
@@ -20,6 +22,7 @@ def chat_with_csv(df,prompt):
     return result
 
 st.set_page_config(layout='wide')
+
 
 st.title("LLM powered CSV chatbot")
 st.write("Upload a csv file and ask the bot about your data.")
