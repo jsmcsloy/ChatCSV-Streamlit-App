@@ -25,7 +25,7 @@ st.set_page_config(layout='wide')
 
 
 st.title("LLM powered CSV chatbot")
-st.write("Upload a csv file and ask the bot about your data.")
+st.write("Upload a csv file and ask the bot about your data. Public facing  and not secure so do not upload private data.")
 st.write(" # ")
 
 input_csv = st.file_uploader("Upload your CSV file", type=['csv'])
